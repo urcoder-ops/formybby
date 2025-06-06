@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>You & Me 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      transition: background-image 0.8s ease;
+      text-align: center;
+      color: #fff;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 40px;
+      border-radius: 25px;
+      max-width: 400px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 25px;
+    }
+
+    button {
+      background-color: #ff66b2;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #ff3385;
+    }
+
+    .hearts {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      font-size: 2rem;
+      animation: floatHearts 2s infinite ease-in-out;
+    }
+
+    @keyframes floatHearts {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(-10px); }
+    }
+  </style>
+</head>
+<body style="background-image: url('us1.jpg');" id="bg">
+  <div class="overlay">
+    <h1>Hi Love! 💞</h1>
+    <p id="message">You make every day magical ✨</p>
+    <button onclick="changeContent()">Click me 💖</button>
+  </div>
+
+  <div class="hearts">❤️ 💗 💕 💘 💓</div>
+
+  <script>
+    const messages = [
+      "You make every day magical ✨",
+      "I feel at home when I'm with you. 🏡",
+      "You're my favorite person. Ever. 💘",
+      "Thank you for loving me every day 💖",
+      "Forever with you is the best plan. 🥰"
+    ];
+
+    const backgrounds = [
+      "u1.jpg",
+      "u2.jpg",
+      "u3.jpg",
+      "u4.jpg",
+      "u5.jpg"
+    ];
+
+    let index = 0;
+
+    function changeContent() {
+      index = (index + 1) % messages.length;
+      document.getElementById("message").textContent = messages[index];
+      document.getElementById("bg").style.backgroundImage = `url('${backgrounds[index]}')`;
+    }
+  </script>
+</body>
+</html>
